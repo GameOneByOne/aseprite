@@ -105,5 +105,9 @@ jobs:
       - name: Upload Aseprite Build
         uses: actions/upload-artifact@v4
         with:
-          name: Aseprite-Latest
-          path: C:\deps\aseprite\build\Binary
+          name: aseprite-windows-release
+          path: |
+            build/bin/aseprite.exe
+            build/bin/libcrypto-1_1-x64.dll
+            build/bin/libssl-1_1-x64.dll
+            build/bin/data/**

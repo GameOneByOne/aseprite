@@ -101,6 +101,8 @@ jobs:
           cd build
           cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_IGNORE_PATH=C:\Strawberry\c\bin -DCMAKE_IGNORE_PATH=C:\mingw64\bin -DLAF_BACKEND=skia -DSKIA_DIR=C:\deps\skia -DSKIA_LIBRARY_DIR=C:\deps\skia\out\Release-x64 -DSKIA_LIBRARY=C:\deps\skia\out\Release-x64\skia.lib -G Ninja ..
           ninja aseprite
+          ls -la
+          pwd
       # 将 构建好的 Aseprite 上传到工件以供下载！
       - name: Upload Aseprite Build
         uses: actions/upload-artifact@v4
@@ -110,4 +112,4 @@ jobs:
             bin\aseprite.exe
             bin\libcrypto-1_1-x64.dll
             bin\libssl-1_1-x64.dll
-            data/**
+            D:\a\aseprite\aseprite\**

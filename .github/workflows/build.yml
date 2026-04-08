@@ -110,4 +110,4 @@ jobs:
             aseprite.exe
             libcrypto-1_1-x64.dll
             libssl-1_1-x64.dll
-            ../data/**
+            data/**

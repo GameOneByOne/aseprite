@@ -101,15 +101,16 @@ jobs:
           cd build
           cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_IGNORE_PATH=C:\Strawberry\c\bin -DCMAKE_IGNORE_PATH=C:\mingw64\bin -DLAF_BACKEND=skia -DSKIA_DIR=C:\deps\skia -DSKIA_LIBRARY_DIR=C:\deps\skia\out\Release-x64 -DSKIA_LIBRARY=C:\deps\skia\out\Release-x64\skia.lib -G Ninja ..
           ninja aseprite
-          ls -la
-          pwd
-      # 将 构建好的 Aseprite 上传到工件以供下载！
-      - name: Upload Aseprite Build
-        uses: actions/upload-artifact@v4
+      - name: Zip Aseprite
+        run: |
+          cd build/bin
+          tree
+          7z a ../../Aseprite-Windows-x64-${{ steps.get_version.outputs.version }}.zip *
+
+      - name: GH Release
+        uses: softprops/action-gh-release@v2
         with:
-          name: aseprite-windows-release
-          path: |
-            bin\aseprite.exe
-            bin\libcrypto-1_1-x64.dll
-            bin\libssl-1_1-x64.dll
-            D:\a\aseprite\aseprite\**
+          name: Aseprite-Windows-x64-${{ steps.get_version.outputs.version }}
+          tag_name: ${{ steps.get_version.outputs.version }}
+          files: |
+            Aseprite-Windows-x64-${{ steps.get_version.outputs.version }}.zip

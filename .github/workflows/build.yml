@@ -107,7 +107,7 @@ jobs:
         with:
           name: aseprite-windows-release
           path: |
-            aseprite.exe
-            libcrypto-1_1-x64.dll
-            libssl-1_1-x64.dll
+            bin\aseprite.exe
+            bin\libcrypto-1_1-x64.dll
+            bin\libssl-1_1-x64.dll
             data/**

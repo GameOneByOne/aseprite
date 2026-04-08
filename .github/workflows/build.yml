@@ -103,8 +103,9 @@ jobs:
           ninja aseprite
       - name: Zip Aseprite
         run: |
+          D:
+          cd D:\a\aseprite\aseprite
           tree
-          cd build/bin
           7z a ../../Aseprite-Windows-x64-${{ steps.get_version.outputs.version }}.zip *
 
       - name: GH Release
